@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Cupcake DApp – Arbitrum Sepolia (MetaMask gas)</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- Ethers.js v6 UMD -->
+    <script src="https://cdn.jsdelivr.net/npm/ethers@6.13.2/dist/ethers.umd.min.js"></script>
+    <style>
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            max-width: 520px;
+            margin: 24px auto;
+            padding: 16px;
+            background: #020617;
+            color: #e5e7eb;
+        }
+
+        h1 {
+            font-size: 22px;
+            margin-bottom: 12px;
+            text-align: center;
+        }
+
+        button {
+            padding: 10px 16px;
+            border-radius: 8px;
+            border: none;
+            cursor: pointer;
+            font-size: 14px;
+            margin: 4px 0;
+            width: 100%;
+            background: #4f46e5;
+            color: white;
+        }
+
+        button:disabled {
+            opacity: 0.5;
+            cursor: default;
+        }
+
+        .card {
+            background: #020617;
+            border-radius: 12px;
+            padding: 12px 14px;
+            margin-bottom: 10px;
+            border: 1px solid #1e293b;
+        }
+
+        .label {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            color: #9ca3af;
+            margin-bottom: 2px;
+        }
+
+        .value {
+            font-size: 14px;
+            word-break: break-all;
+        }
+
+        #status {
+            font-size: 13px;
+            min-height: 18px;
+            margin-top: 6px;
+            color: #fbbf24;
+            white-space: pre-line;
+        }
+
+        #error {
+            font-size: 13px;
+            min-height: 18px;
+            margin-top: 6px;
+            color: #f97373;
+            white-space: pre-line;
+        }
+
+        #debugLog {
+            font-size: 11px;
+            white-space: pre-wrap;
+            max-height: 220px;
+            overflow-y: auto;
+            background: #020617;
+            padding: 8px;
+            border-radius: 8px;
+            border: 1px solid #1f2937;
+        }
+    </style>
+</head>
+
+<body>
+<h1>Cupcake DApp (MetaMask gas)</h1>
+
+<div class="card">
+    <div class="label">Contract (Arbitrum Sepolia)</div>
+    <div class="value" id="contractAddress">
+        0xEFEDC7325119dBE632FD89A086e3DA1Aa2Ba2b90
+    </div>
+</div>
+
+<div class="card">
+    <button id="connectButton">Connect MetaMask &amp; Switch Network</button>
+
+    <div class="label" style="margin-top: 8px;">Account</div>
+    <div class="value" id="account">Not connected</div>
+
+    <div class="label" style="margin-top: 8px;">Network / Chain ID</div>
+    <div class="value" id="network">—</div>
+
+    <div class="label" style="margin-top: 8px;">ETH balance (Arbitrum Sepolia)</div>
+    <div class="value" id="ethBalance">—</div>
+
+    <div class="label" style="margin-top: 8px;">Cupcake balance</div>
+    <div class="value" id="balance">—</div>
+</div>
+
+<div class="card">
+    <button id="giveButton" disabled>Give me a cupcake 🍰</button>
+    <button id="refreshButton" disabled>Refresh balances</button>
+
+    <div id="status"></div>
+    <div id="error"></div>
+</div>
+
+<div class="card">
+    <div class="label">Debug log</div>
+    <pre id="debugLog"></pre>
+</div>
+
+<!-- Основная логика -->
+<script src="app.js"></script>
+</body>
+
+</html>
